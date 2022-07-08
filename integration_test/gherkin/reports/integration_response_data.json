@@ -1,0 +1,3 @@
+{
+  "gherkin_reports": "[[{\"id\":\"data table with jsonreporter\",\"keyword\":\"Feature\",\"line\":1,\"name\":\"Data table with JsonReporter\",\"uri\":\".\\\\\\\\integration_test\\\\\\\\table_data.feature\",\"elements\":[{\"keyword\":\"Scenario\",\"type\":\"scenario\",\"id\":\"data table with jsonreporter;data table with jsonreporter\",\"name\":\"Data table with JsonReporter\",\"line\":1,\"status\":\"passed\",\"steps\":[{\"keyword\":\"Given \",\"name\":\"I see the following users\",\"line\":1,\"match\":{\"location\":\":1\"},\"result\":{\"status\":\"passed\",\"duration\":3000000},\"rows\":[{\"cells\":[\"name\",\"age\",\"country\"]},{\"cells\":[\"Mike\",\"20\",\"Spain\"]},{\"cells\":[\"Robert\",null,\"Italy\"]}]}]}]}]]"
+}

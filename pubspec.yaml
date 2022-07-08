@@ -49,7 +49,7 @@ dev_dependencies:
   integration_test:
     sdk: flutter
 
-  flutter_gherkin: ^3.0.0-rc.9
+  flutter_gherkin: ^3.0.0-rc.16
   build_runner: ^2.1.5
 
 

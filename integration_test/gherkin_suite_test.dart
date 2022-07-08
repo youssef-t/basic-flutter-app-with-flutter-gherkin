@@ -1,31 +1,34 @@
-import 'package:flutter_gherkin/flutter_gherkin.dart';
-import 'package:gherkin/gherkin.dart';
-
 import 'package:basic_app_json_reporter_with_data_table/main.dart' as app;
+import 'package:flutter_gherkin/flutter_gherkin.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:gherkin/gherkin.dart';
 
 import 'given_steps_definitions.dart';
 
 part 'gherkin_suite_test.g.dart';
 
 @GherkinTestSuite(
+  useAbsolutePaths: false,
+  featurePaths: ['integration_test/**.feature'],
   executionOrder: ExecutionOrder.random,
-  featurePaths: <String>['integration_test/**.feature'],
+  featureDefaultLanguage: 'en',
 )
 void main() {
   executeTestSuite(
-    gherkinTestConfiguration,
-    appInitializationFn,
+    appMainFunction: appInitializationFn,
+    configuration: gherkinTestConfiguration,
   );
 }
 
-FlutterTestConfiguration gherkinTestConfiguration = FlutterTestConfiguration()
-  ..stepDefinitions = [
+FlutterTestConfiguration gherkinTestConfiguration = FlutterTestConfiguration(
+  stepDefinitions: [
     iSeeTheFollowingUsersStepDefinition(),
-  ]
-  ..hooks = <Hook>[
+  ],
+  tagExpression: '',
+  hooks: [
     AttachScreenshotOnFailedStepHook(),
-  ]
-  ..reporters = [
+  ],
+  reporters: [
     StdoutReporter(MessageLevel.error)
       ..setWriteLineFn(print)
       ..setWriteFn(print),
@@ -35,13 +38,9 @@ FlutterTestConfiguration gherkinTestConfiguration = FlutterTestConfiguration()
     TestRunSummaryReporter()
       ..setWriteLineFn(print)
       ..setWriteFn(print),
-    JsonReporter(
-      writeReport: (_, __) => Future<void>.value(),
-    ),
-  ]
-  ..defaultTimeout = const Duration(minutes: 4);
+  ],
+);
 
-Future<void> Function(World) appInitializationFn = (World world) async {
+Future<void> appInitializationFn(World world) async {
   app.main();
-};
-
+}

@@ -6,6 +6,6 @@ Future<void> main() {
   integration_test_driver.testOutputsDirectory = 'integration_test/gherkin/reports';
 
   return integration_test_driver.integrationDriver(
-    timeout: Duration(minutes: 90),
+    timeout: const Duration(minutes: 90),
   );
 }
