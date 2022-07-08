@@ -1,6 +1,6 @@
 ## A basic flutter application with flutter_gherkin
 
-A project to demonstrate a bug when using the Json Reporter with a data table containing null values.
+A project to demonstrate test failure because of a data table containing null values.
 
 ### Commands to run the project
 ```
